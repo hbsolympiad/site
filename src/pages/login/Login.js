@@ -61,8 +61,6 @@ function Login(){
 
     const [ succMessage, setSuccMessage ] = useState("")
 
-    const [isButtonDisabled, setButtonDisabled] = useState(false);
-
 {/*}
     useEffect(() => {
         if (name!= "" && phoneNumber!="" && idNum && email) {
@@ -110,7 +108,6 @@ function Login(){
         }
         
         else { 
-            setButtonDisabled(true);
             setSubmitted(true); 
             setError(false); 
             console.log(email);
@@ -260,7 +257,7 @@ function Login(){
                                 type = "password"
                             />
 
-                            <button className="buton" type="submit" disabled={isButtonDisabled}>
+                            <button className="buton" type="submit">
                                 Submit
                             </button>
                         </form>
