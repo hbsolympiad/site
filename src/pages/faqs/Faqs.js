@@ -32,8 +32,8 @@ function Faqs(){
                             <div className='text-small'>
                                 <p>When signing up please remember to write down your password otherwise you can email at hbsolympiad@gmail.com and it will take around 2-3 days to recover your password.</p>
                             </div>
-                            <p>Can I change the events I have registered for?</p>
-                            <p>No, please do a double or triple take when registering, you cannot drop events but exceptional cases will be dealt separately.</p>
+                            <p className='text-big'>Can I change the events I have registered for?</p>
+                            <p className='text-small'>No, please do a double or triple take when registering, you cannot drop events but exceptional cases will be dealt separately.</p>
                             <h2 className='text-small'>If there's weird bugs or glitches please send an email at hbsolympiad@gmail.com</h2>
                     </div>
                 </div>
