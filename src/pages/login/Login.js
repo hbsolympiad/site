@@ -61,6 +61,8 @@ function Login(){
 
     const [ succMessage, setSuccMessage ] = useState("")
 
+    const [isButtonDisabled, setButtonDisabled] = useState(false);
+
 {/*}
     useEffect(() => {
         if (name!= "" && phoneNumber!="" && idNum && email) {
@@ -108,6 +110,7 @@ function Login(){
         }
         
         else { 
+            setButtonDisabled(true);
             setSubmitted(true); 
             setError(false); 
             console.log(email);
@@ -223,7 +226,6 @@ function Login(){
                 ) :  */}
                 
                     <div className="LoginPage">
-                        <button className='btn btn-sm' onClick={handleAdminSwitch}>Switch to Admin</button>
                         <div>
                             <h1>User Login</h1>
                         </div>
@@ -258,7 +260,7 @@ function Login(){
                                 type = "password"
                             />
 
-                            <button className="buton" type="submit">
+                            <button className="buton" type="submit" disabled={isButtonDisabled}>
                                 Submit
                             </button>
                         </form>
