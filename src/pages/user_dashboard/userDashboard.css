@@ -1,0 +1,35 @@
+.infoViewBox {
+    background-color: rgba(39, 39, 39, 0.7);
+    display: block;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid rgb(56, 56, 56);
+    border-left: none;
+    border-right: none;
+    margin: 0 auto;
+}
+
+.eventInfo button{
+    margin: 10px;
+}  
+
+.user-shown-events {
+    display: block;
+    grid-template-columns: auto auto;
+    min-width: auto;
+    color: white;;
+}
+
+.user-shown-events li {
+    list-style: none;
+    padding-bottom: 10px;
+}
+
+.user-shown-events h2 {
+    padding-bottom: 10px;
+}
+
+.team-list-shown {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
