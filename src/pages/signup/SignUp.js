@@ -23,6 +23,8 @@ function SignUp(){
 
     const [ succMessage, setSuccMessage ] = useState("")
 
+    const [ isButtonDisabled, setButtonDisabled ] = useState("")
+
     const navigate = useNavigate();
 
 
@@ -105,6 +107,7 @@ function SignUp(){
         }
         
         else {
+            setButtonDisabled(true);
             setSubmitted(true); 
             setError(false);
             console.log(uniCardImgFR); 
@@ -283,7 +286,7 @@ function SignUp(){
                         />
 
 
-                        <button onClick={handleSubmit} className="buton" type="submit">
+                        <button onClick={handleSubmit} className="buton" type="submit"  disabled={isButtonDisabled}>
                             Submit
                         </button>
                     </form>
