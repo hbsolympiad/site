@@ -202,7 +202,7 @@ function UserList(){
                     </ul>
                     <ul>
                         <h2>Buttons</h2>
-                        { sentUser ? ( sentUser.map((d) => <li key={d.email}><button className='btn btn-sm' onClick={()=>handlePic(d.email)}>Check Uni Card and Payment</button></li>)  ) : ( 'none' ) }
+                        { sentUser ? ( sentUser.map((d) => <li key={d.email}><button className='btn btn-sm' onClick={()=>handlePic(d.email)}>Check Inputst</button></li>)  ) : ( 'none' ) }
                     </ul>
                 </div>
                 <button className='btn btn-sm' onClick={ handleSetPage } >Next Page</button>

@@ -163,9 +163,9 @@ function UserDashboard(){
                         <div className='infoViewBox'>
                             <label className='Label'>Payment Proof</label>
                             <p className='text-small'>
-                                For Fee Payments send to 03025300003 Sadapay and upload picture of payment reciept { '\n' } { '\n' }
+                                For Fee Payments send to 03025300003 Muhammad Nehyan Sadapay and upload picture of payment receipt { '\n' } { '\n' }
                                 For HBS students to participate The cost is 500 for a maximum of 5 events Your registration will only be completed once the 1500PKR alongside the 500PKR cost is confirmed{ '\n' }{ '\n' }
-                                For Outsiders Till 15th August 2000PKR for socials and up to 5 events maximum From 16th August 2500PKR for socials and up to 5 events maximum { '\n' }{ '\n' }
+                                For Outsiders until 15th August you pay 2000PKR From 16th August you pay 2500PKR for socials and up to 5 events maximum { '\n' }{ '\n' }
                                 Please make sure the payment recipet you upload has the date of payment visible{ '\n' }{ '\n' }
                             </p>
                             <div className='imgInuput'>

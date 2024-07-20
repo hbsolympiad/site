@@ -32,7 +32,7 @@ function TeamEventReg(){
     }
 
     const handleEventSelect = async(selectedEvent) => {
-        if (window.confirm("Do you want to register for "+selectedEvent))
+        if (window.confirm("Are you sure you want to register for this event, This decision cannot be reversed"))
         {
             setSelectedEvent(selectedEvent);
             setSubmitted(true);
