@@ -5,6 +5,7 @@ import React from 'react'
 import FileBase64 from 'react-file-base64';
 import Navbar from '../navbar/Navbar'
 import Logo from '../Logo/Logo'
+import { useNavigate } from 'react-router-dom';
 
 function UserDashboard(){
     
@@ -18,14 +19,16 @@ function UserDashboard(){
 
     const [ feePayment, setfeePayment ] = useState("");
 
+    const [ approval, setApproval] = useState(false)
+
+    const navigate = useNavigate();
+
     useEffect(() => {
         const fetchEvents = async() =>{
             try{
                 const res = await axios.post('http://localhost:5000/v1/getEvents', {
                     email, 
                 })
-
-                console.log(res);
                 const eventSoloData = res.data.solo;
                 const listSoloTitles = eventSoloData.map((d) => <li key={d.title}>{d.title}</li>);
                 const eventTeamData = res.data.teamMembersbyEvent
@@ -34,7 +37,15 @@ function UserDashboard(){
                 for (var i = 0; i < teamtEventAmmount; i++)
                 {
                     const eventDataRN = eventTeamData[i][0];
-                    const teamDataRN = { title: eventDataRN.eventName, CaptName: eventDataRN.name, Email: eventDataRN.email, Token: eventDataRN.token, Members: Object.values(eventDataRN.user) };
+                    console.log(eventDataRN.user);
+                    var memberList = "";
+                    for (let i = 0; i < eventDataRN.user.length; i++)
+                    {
+                        console.log(eventDataRN.user[i].userName);
+                        memberList = memberList + eventDataRN.user[i].userName + " ,";
+                    }
+                    console.log(memberList)
+                    const teamDataRN = { title: eventDataRN.eventName, CaptName: eventDataRN.name, Email: eventDataRN.email, Token: eventDataRN.token, Members: memberList };
                     teamData[i] = teamDataRN;
                 }
                 const listTeamTitles = teamData.map((d) => <li key={d.title}>{d.title}</li>);
@@ -45,7 +56,20 @@ function UserDashboard(){
             }
         }
 
+        const getApproval = async() => {
+            try {
+                const res = await axios.post('http://localhost:5000/v1/getApproval', {
+                    email, id,
+                })
+                setApproval(res.data.approved);
+            }
+            catch(e) {
+                alert(e)
+            }
+        }
+
         fetchEvents();
+        getApproval();
     },[])
     
     const handleFileChange = (base64) => {
@@ -70,6 +94,7 @@ function UserDashboard(){
                 })
                 .then(res=>{
                     alert(res.data.message);
+                    window.location.reload(false);
                 })
             }
             catch(e){
@@ -100,28 +125,32 @@ function UserDashboard(){
                 </h2>
                 <div className="infoViewBox">
                     <div className="text-small user-shown-events">
-                        <ul className>
+                        <ul >
                             <h2>Solo Events</h2>
                                 { soloEvents }
                         </ul>
                         <div>
                             <h2>Team Events</h2>
-                            <div class="team-list-shown">
+                            <div className="team-list-shown">
                                 <ul>
                                     <h2>Titles</h2>
-                                    { TeamEvents.map((d) => <li >{d.title}</li>) }
+                                    { TeamEvents.map((d) => <li key={d.Email} >{d.title}</li>) }
                                 </ul>
                                 <ul>
                                     <h2>Captains</h2>
-                                    { TeamEvents.map((d) => <li >{d.CaptName}</li>) }
+                                    { TeamEvents.map((d) => <li key={d.Email} >{d.CaptName}</li>) }
                                 </ul>
                                 <ul>
                                     <h2>Email</h2>
-                                    { TeamEvents.map((d) => <li >{d.Email}</li>) }
+                                    { TeamEvents.map((d) => <li key={d.Email} >{d.Email}</li>) }
+                                </ul>
+                                <ul>
+                                    <h2>Members</h2>
+                                    { TeamEvents.map((d) => <li key={d.Email} >{d.Members}</li>) }
                                 </ul>
                                 <ul>
                                     <h2>Token</h2>
-                                    { TeamEvents.map((d) => <li >{d.Token}</li>) }
+                                    { TeamEvents.map((d) => <li key={d.Email} >{d.Token}</li>) }
                                 </ul>
                             </div>
                         </div>
@@ -129,25 +158,35 @@ function UserDashboard(){
                     <button type="submit" className="btn">Download Ticket</button>
                 </div>
                 <br />
-                <div className="infoViewBox">
-                    <label className='Label'>Payment Proof</label>
-                    <div className='imgInuput'>
-                        {feePayment &&  (
-                            <div className='imgDisplay'>
-                                <img 
-                                    alt="not found"
-                                    width = {"250px"}
-                                    src = {feePayment}
-                                />
-                                <button className='reg-btn' onClick={()=>{ setfeePayment(null)}}>Remove Image</button>
-                            </div>
-                        )}
-                        <FileBase64 accept="image/jpeg, image/jpg, image/png" type="file" multiple={false} onDone={({ base64 })=> handleFileChange(base64)}/>
-                        <button onClick= {handleProofSubmit} className='reg-btn'>Submit</button>
-                    </div>
-                </div>
-                <div>
-                </div>
+                    
+                { approval ? ( console.log("approved") ) : 
+                    ( 
+                        <div className='infoViewBox'>
+                            <label className='Label'>Payment Proof</label>
+                            <p className='text-small'>
+                                For Fee Payments send to 03025300003 Sadapay and upload picture of payment reciept { '\n' } { '\n' }
+                                For HBS students to participate The cost is 500 for a maximum of 5 events Your registration will only be completed once the 1500PKR alongside the 500PKR cost is confirmed{ '\n' }{ '\n' }
+                                For Outsiders Till 15th August 2000PKR for socials and up to 5 events maximum From 16th August 2500PKR for socials and up to 5 events maximum { '\n' }{ '\n' }
+                                Please make sure the payment recipet you upload has the date of payment visible{ '\n' }{ '\n' }
+                            </p>
+                            <div className='imgInuput'>
+                            {feePayment &&  (
+                                    <div className='imgDisplay'>
+                                        <img 
+                                            alt="not found"
+                                            width = {"250px"}
+                                            src = {feePayment}
+                                        />
+                                        <button className='reg-btn' onClick={()=>{ setfeePayment(null)}}>Remove Image</button>
+                                    </div>
+                                )}
+                                <p className='text-small'>Please Upload Your Proof Payment</p>
+                                <FileBase64 accept="image/jpeg, image/jpg, image/png" type="file" multiple={false} onDone={({ base64 })=> handleFileChange(base64)}/>
+                                <button onClick= {handleProofSubmit} className='reg-btn'>Submit</button>
+                            </div> 
+                        </div>
+                    )  
+                }
 
             </div>
             <footer className="footer">
