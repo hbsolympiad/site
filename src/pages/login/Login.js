@@ -120,6 +120,7 @@ function Login(){
                     console.log(res.data.result.uniName);
                     const userInfo = { name: res.data.result.name, id: res.data.result.id, email: res.data.result.email , phoneNumber: res.data.result.phoneNumber, token: res.data.token, university: res.data.result.uniName };
                     localStorage.setItem('profile', JSON.stringify(userInfo));
+                    var now = new Date().getTime();
                     localStorage.setItem('setupTime', now);
                     console.log(user);
                     setSuccMessage(res.data.message);
