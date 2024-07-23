@@ -163,13 +163,15 @@ function UserDashboard(){
                         <div className='infoViewBox'>
                             <label className='Label'>Payment Proof</label>
                             <p className='text-small'>
-                                For Fee Payments send to {'\n'}
-                                Account Name: MUHAMMAD NEHYAN {'\n'}
-                                IBAN: PK21KHYB0022002010127303 {'\n'}
-                                Account Name: Haris Tanveer {'\n'}
-                                Account number: 03357888774 Sadapay {'\n'}
+                                For Fee Payments send to { '\n' }
+                                Account Name: MUHAMMAD NEHYAN { '\n' }
+                                IBAN: PK21KHYB0022002010127303 { '\n' }
+                                Account Name: Haris Tanveer { '\n' }
+                                Account number: 03357888774 Sadapay { '\n' }
                                 and upload picture of payment receipt { '\n' } { '\n' }
-                                Fee ammount will be added shortly{ '\n' }{ '\n' }
+                                { '\n '} { '\n' }
+                                To check payment costs, please refer to the instagram page { '\n' }
+                                https://www.instagram.com/hbs.studentcouncil?igsh=MWpycmFhMHBxYjgxeg== { '\n' }
                             </p>
                             <div className='imgInuput'>
                             {feePayment &&  (
