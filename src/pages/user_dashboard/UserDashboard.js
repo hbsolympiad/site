@@ -163,10 +163,13 @@ function UserDashboard(){
                         <div className='infoViewBox'>
                             <label className='Label'>Payment Proof</label>
                             <p className='text-small'>
-                                For Fee Payments send to 03025300003 Muhammad Nehyan Sadapay and upload picture of payment receipt { '\n' } { '\n' }
-                                For HBS students to participate The cost is 500 for a maximum of 5 events Your registration will only be completed once the 1500PKR alongside the 500PKR cost is confirmed{ '\n' }{ '\n' }
-                                For Outsiders until 15th August you pay 2000PKR From 16th August you pay 2500PKR for socials and up to 5 events maximum { '\n' }{ '\n' }
-                                Please make sure the payment recipet you upload has the date of payment visible{ '\n' }{ '\n' }
+                                For Fee Payments send to {'\n'}
+                                Account Name: MUHAMMAD NEHYAN {'\n'}
+                                IBAN: PK21KHYB0022002010127303 {'\n'}
+                                Account Name: Haris Tanveer {'\n'}
+                                Account number: 03357888774 Sadapay {'\n'}
+                                and upload picture of payment receipt { '\n' } { '\n' }
+                                Fee ammount will be added shortly{ '\n' }{ '\n' }
                             </p>
                             <div className='imgInuput'>
                             {feePayment &&  (
