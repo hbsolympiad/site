@@ -171,8 +171,9 @@ function UserDashboard(){
                                 Account number: 03357888774 Sadapay { '\n' }
                                 and upload picture of payment receipt { '\n' } { '\n' }
                                 { '\n '}
-                                To check payment costs, please refer to the instagram page { '\n' }
-                                https://www.instagram.com/hbs.studentcouncil?igsh=MWpycmFhMHBxYjgxeg== { '\n' } { '\n' }
+                                To check payment costs, please refer to the 
+                                <a href="https://www.instagram.com/hbs.studentcouncil?igsh=MWpycmFhMHBxYjgxeg==">Instagram Page</a>
+                                { '\n' } { '\n' }
                             </p>
                             <div className='imgInuput'>
                             {feePayment &&  (
