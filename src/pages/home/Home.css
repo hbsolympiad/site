@@ -246,6 +246,6 @@
     background-position: 100vw;
   }
   100% {
-    background-position: 100%;
+    background-position: 0vw;
   }
 }
