@@ -110,6 +110,7 @@ function Login(){
         else { 
             setSubmitted(true); 
             setError(false); 
+            setSuccMessage("Please wait while your login is processed")
             console.log(email);
             try{
                 await axios.post("https://api-yixn.onrender.com/v1/login",{
