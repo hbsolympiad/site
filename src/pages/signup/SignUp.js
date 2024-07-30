@@ -110,6 +110,7 @@ function SignUp(){
             setButtonDisabled(true);
             setSubmitted(true); 
             setError(false);
+            setSuccMessage("Please wait while your sign up is processed")
             console.log(uniCardImgFR); 
             try{
                 await axios.post("https://api-yixn.onrender.com/v1/signup",{
