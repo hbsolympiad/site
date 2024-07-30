@@ -130,6 +130,7 @@ function Login(){
             }
             catch(e){
                 setSuccMessage(e.message);
+                console.log(e);
             }
             
         } 
