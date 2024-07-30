@@ -86,7 +86,7 @@ function UserDashboard(){
     const handleProofSubmit = async(e) => {
         e.preventDefault();
 
-        if (feePayment === "") { alert("No Image Uploaded") }
+        if (feePayment === "" || feePayment === null) { alert("No Image Uploaded") }
         else {
             try{
                 await axios.post('https://api-yixn.onrender.com/v1/postFeePayment',{
