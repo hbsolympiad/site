@@ -129,13 +129,13 @@ function Login(){
                 })
             }
             catch(e){
-                setSuccMessage('Invalid credentials');
+                setSuccMessage(e.message);
             }
             
         } 
     }; 
     
-    const successMessage = (succMessage) => { 
+    const successMessage = () => { 
         return ( 
             <div 
                 className="success"
