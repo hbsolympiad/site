@@ -129,7 +129,7 @@ function Login(){
                 })
             }
             catch(e){
-                setSuccMessage(e.message);
+                setSuccMessage(e.response.data.message);
                 console.log(e);
             }
             
