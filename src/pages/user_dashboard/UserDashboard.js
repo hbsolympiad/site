@@ -109,6 +109,14 @@ function UserDashboard(){
 
             <div className="box-main">
                 <Logo />
+                {
+                    approval ? ('none') : 
+                    (
+                        <div className='infoViewBoxUrgent'>
+                            <p className='text-small'>Please upload your fee payment</p>
+                        </div>
+                    )
+                }
                 <h1 className="text-big">
                     User Dashboard
                 </h1>
