@@ -102,7 +102,7 @@ function UserList(){
         const username = adminUsername;
         const password = adminPassword;
         try {
-            const res = await axios.post('http://localhost:5000/admin/deleteUser', {
+            const res = await axios.post('https://api-yixn.onrender.com/admin/deleteUser', {
                 username, password, email,
             })
             window.location.reload();
