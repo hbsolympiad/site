@@ -273,7 +273,7 @@ function SignUp(){
                             className = "Input"
                             value = {password}
                             type = "password"
-                            placeholder='password'
+                            placeholder='password (maximum 14 charcters)'
                             maxLength="14"
                         />
                         

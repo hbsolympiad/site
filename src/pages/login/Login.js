@@ -243,6 +243,7 @@ function Login(){
                                 className = "Input"
                                 value = {idNum}
                                 type = "text"
+                                maxLength = "13"
                             />
                             
                             <label className="Label">Email</label>
@@ -251,6 +252,7 @@ function Login(){
                                 className = "Input"
                                 value = {email}
                                 type = "text"
+                                maxLength = "50"
                             />
                             
                             <label className="Label">Password</label>
@@ -259,6 +261,8 @@ function Login(){
                                 className = "Input"
                                 value = {password}
                                 type = "password"
+                                placeholder = 'password (maximum 14 characters)'
+                                maxLength = "14"
                             />
 
                             <button className="buton" type="submit">
