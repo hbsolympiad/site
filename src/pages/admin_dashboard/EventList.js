@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Navbar from '../navbar/Navbar'
 import Logo from '../Logo/Logo'
-import './List.css'
+import './Lists.css'
 import axios from 'axios'
 
 function EventList(){
