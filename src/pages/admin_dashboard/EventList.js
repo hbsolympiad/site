@@ -63,7 +63,7 @@ function EventList(){
         const username = adminUsername;
         const password = adminPassword;
         try {
-            const res = await axios.post('http://localhost:5000/admin/deleteTeamEvent', {
+            const res = await axios.post('https://api-yixn.onrender.com/admin/deleteTeamEvent', {
                 email, eventName, username, password,
             })
             window.location.reload();
